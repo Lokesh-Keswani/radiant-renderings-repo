@@ -1,9 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -54,46 +52,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="p-8 bg-muted/30 border-border shadow-glow">
-            <h3 className="text-2xl font-bold mb-6 flex items-center">
-              <Send className="h-6 w-6 text-primary mr-3" />
-              Send me a message
-            </h3>
-            
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Name</label>
-                  <Input placeholder="Your name" className="bg-background/50" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Email</label>
-                  <Input type="email" placeholder="your.email@example.com" className="bg-background/50" />
-                </div>
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium mb-2 block">Subject</label>
-                <Input placeholder="Project collaboration" className="bg-background/50" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium mb-2 block">Message</label>
-                <Textarea 
-                  placeholder="Tell me about your project or idea..." 
-                  className="bg-background/50 min-h-32"
-                />
-              </div>
-              
-              <Button className="w-full bg-gradient-primary hover:shadow-glow transition-smooth group">
-                Send Message
-                <Send className="ml-2 h-4 w-4 transition-smooth group-hover:translate-x-1" />
-              </Button>
-            </form>
-          </Card>
-
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Details */}
