@@ -6,6 +6,13 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Prefilled mailto link that opens a draft with subject and starter body
+  const mailto = `mailto:keswani999@gmail.com?subject=${encodeURIComponent(
+    'Portfolio inquiry'
+  )}&body=${encodeURIComponent(
+    'Hello Lokesh,%0A%0AI came across your portfolio and would like to connect about a potential opportunity.%0A%0APlease let me know a good time to chat.%0A%0AThanks,%0A'
+  )}`;
+
   return (
     <footer className="py-16 border-t border-border bg-muted/20">
       <div className="container mx-auto px-4">
@@ -14,7 +21,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold gradient-text">Lokesh Keswani</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Software Developer passionate about creating intelligent digital solutions 
+              Software Developer passionate about creating intelligent digital solutions
               that make a difference. Always learning, always building.
             </p>
             <div className="flex items-center gap-2">
@@ -29,8 +36,8 @@ const Footer = () => {
               {[
                 'About', 'Skills', 'Projects', 'Blog', 'Contact', 'Resume'
               ].map((link) => (
-                <a 
-                  key={link} 
+                <a
+                  key={link}
                   href={`#${link.toLowerCase()}`}
                   className="text-muted-foreground hover:text-primary transition-smooth text-sm"
                 >
@@ -44,26 +51,33 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Let's Connect</h4>
             <div className="space-y-3">
-              <a 
-                href="mailto:keswani999@gmail.com"
+              <a
+                href={mailto}
                 className="flex items-center text-muted-foreground hover:text-primary transition-smooth group"
               >
                 <Mail className="h-4 w-4 mr-3" />
                 keswani999@gmail.com
               </a>
               <div className="flex gap-4">
-                <a 
+                <a
                   href="https://github.com/Lokesh-Keswani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
                   className="text-muted-foreground hover:text-primary transition-smooth hover:scale-110"
                 >
                   <Github className="h-5 w-5" />
                 </a>
-                <a 
-                  href="https://linkedin.com/in/lokesh-keswani"
+                <a
+                  href="https://www.linkedin.com/in/lokesh-keswani-13325a351/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   className="text-muted-foreground hover:text-accent transition-smooth hover:scale-110"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
+
               </div>
             </div>
           </div>
@@ -75,8 +89,8 @@ const Footer = () => {
             Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> by Lokesh Keswani
             <span className="ml-2">© 2024 All rights reserved</span>
           </p>
-          
-          <button 
+
+          <button
             onClick={scrollToTop}
             className="flex items-center text-muted-foreground hover:text-primary transition-smooth group"
           >
