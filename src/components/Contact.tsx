@@ -1,0 +1,181 @@
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink } from "lucide-react";
+
+const Contact = () => {
+  const contactInfo = [
+    {
+      icon: <Mail className="h-5 w-5" />,
+      label: "Email",
+      value: "keswani999@gmail.com",
+      link: "mailto:keswani999@gmail.com"
+    },
+    {
+      icon: <Phone className="h-5 w-5" />,
+      label: "Phone",
+      value: "9579955252",
+      link: "tel:+919579955252"
+    },
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      label: "Location", 
+      value: "Ulhasnagar, Thane",
+      link: "#"
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: <Github className="h-5 w-5" />,
+      label: "GitHub",
+      username: "Lokesh-Keswani",
+      link: "https://github.com/Lokesh-Keswani"
+    },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      label: "LinkedIn", 
+      username: "Lokesh Keswani",
+      link: "https://linkedin.com/in/lokesh-keswani"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Get In <span className="gradient-text">Touch</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life with cutting-edge technology.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Form */}
+          <Card className="p-8 bg-muted/30 border-border shadow-glow">
+            <h3 className="text-2xl font-bold mb-6 flex items-center">
+              <Send className="h-6 w-6 text-primary mr-3" />
+              Send me a message
+            </h3>
+            
+            <form className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Name</label>
+                  <Input placeholder="Your name" className="bg-background/50" />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Email</label>
+                  <Input type="email" placeholder="your.email@example.com" className="bg-background/50" />
+                </div>
+              </div>
+              
+              <div>
+                <label className="text-sm font-medium mb-2 block">Subject</label>
+                <Input placeholder="Project collaboration" className="bg-background/50" />
+              </div>
+              
+              <div>
+                <label className="text-sm font-medium mb-2 block">Message</label>
+                <Textarea 
+                  placeholder="Tell me about your project or idea..." 
+                  className="bg-background/50 min-h-32"
+                />
+              </div>
+              
+              <Button className="w-full bg-gradient-primary hover:shadow-glow transition-smooth group">
+                Send Message
+                <Send className="ml-2 h-4 w-4 transition-smooth group-hover:translate-x-1" />
+              </Button>
+            </form>
+          </Card>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Contact Details */}
+            <Card className="p-8 bg-muted/30 border-border hover:shadow-glow transition-smooth">
+              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-center group cursor-pointer">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4 group-hover:bg-primary/20 transition-smooth">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <p className="font-medium">{info.label}</p>
+                      <p className="text-muted-foreground group-hover:text-primary transition-smooth">
+                        {info.value}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Social Links */}
+            <Card className="p-8 bg-muted/30 border-border hover:shadow-glow transition-smooth">
+              <h3 className="text-2xl font-bold mb-6">Find me online</h3>
+              <div className="space-y-4">
+                {socialLinks.map((social, index) => (
+                  <div key={index} className="flex items-center justify-between group">
+                    <div className="flex items-center">
+                      <div className="p-3 rounded-lg bg-accent/10 text-accent mr-4 group-hover:bg-accent/20 transition-smooth">
+                        {social.icon}
+                      </div>
+                      <div>
+                        <p className="font-medium">{social.label}</p>
+                        <p className="text-muted-foreground">{social.username}</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm" className="transition-bounce hover:scale-105">
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Availability */}
+            <Card className="p-8 bg-gradient-primary/5 border-primary/20 hover:shadow-glow-primary transition-smooth">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-lg font-bold mb-2">Available for hire</h4>
+                  <p className="text-muted-foreground">
+                    Open to freelance projects and full-time opportunities
+                  </p>
+                </div>
+                <Badge className="bg-primary text-primary-foreground">
+                  Open
+                </Badge>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="mt-20 text-center">
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-text">24h</div>
+              <p className="text-muted-foreground">Average Response Time</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-text">100%</div>
+              <p className="text-muted-foreground">Project Success Rate</p>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold gradient-text">5★</div>
+              <p className="text-muted-foreground">Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
