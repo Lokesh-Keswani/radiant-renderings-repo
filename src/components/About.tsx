@@ -105,7 +105,7 @@ const About = () => {
               <p className="text-muted-foreground">Blog Readers</p>
             </Card>
             <Card className="p-6 text-center bg-gradient-primary/5 border-primary/20 hover:shadow-glow-primary transition-smooth">
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <div className="text-3xl font-bold text-primary mb-2">11+</div>
               <p className="text-muted-foreground">GitHub Repositories</p>
             </Card>
           </div>
