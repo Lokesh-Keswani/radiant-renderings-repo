@@ -11,10 +11,10 @@ const About = () => {
       description: "Teaching programming fundamentals and mentoring students in real-world project development."
     },
     {
-      title: "Software Developer Intern", 
-      company: "AdmyBRAND",
-      period: "2024",
-      description: "Developed AI-powered analytics dashboards and full-stack solutions using React, TypeScript, and Node.js."
+      title: "Software Developer Intern",
+      company: "School Of Business Wisdom",
+      period: "2025",
+      description: "Interning as a Software Developer at SBW, contributing to AI-driven product research, development, testing, and user experience, while gaining hands-on experience in full-cycle software development."
     }
   ];
 
@@ -41,9 +41,7 @@ const About = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I'm a passionate software developer with hands-on experience in building AI-powered applications, 
-            full-stack web solutions, and educational platforms. I love turning complex problems into 
-            elegant, user-friendly solutions.
+            Passionate software developer, programming instructor, and blogger with hands-on experience in AI-powered applications, full-stack web solutions, and educational platforms. I enjoy turning complex problems into user-friendly solutions while teaching programming concepts and sharing insights through writing.
           </p>
         </div>
 

@@ -36,7 +36,7 @@ const Contact = () => {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn", 
       username: "Lokesh Keswani",
-      link: "https://linkedin.com/in/lokesh-keswani"
+  link: "https://www.linkedin.com/in/lokesh-keswani-13325a351"
     }
   ];
 
@@ -60,7 +60,13 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center group cursor-pointer">
+                  <a
+                    key={index}
+                    href={info.link}
+                    target={info.link.startsWith('mailto:') || info.link.startsWith('tel:') ? undefined : '_blank'}
+                    rel={info.link.startsWith('mailto:') || info.link.startsWith('tel:') ? undefined : 'noopener noreferrer'}
+                    className="flex items-center group"
+                  >
                     <div className="p-3 rounded-lg bg-primary/10 text-primary mr-4 group-hover:bg-primary/20 transition-smooth">
                       {info.icon}
                     </div>
@@ -70,7 +76,7 @@ const Contact = () => {
                         {info.value}
                       </p>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </Card>
@@ -90,9 +96,11 @@ const Contact = () => {
                         <p className="text-muted-foreground">{social.username}</p>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm" className="transition-bounce hover:scale-105">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
+                    <a href={social.link} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="sm" className="transition-bounce hover:scale-105">
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    </a>
                   </div>
                 ))}
               </div>

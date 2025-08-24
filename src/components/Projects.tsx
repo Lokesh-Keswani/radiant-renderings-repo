@@ -11,7 +11,7 @@ const Projects = () => {
       icon: <BarChart className="h-6 w-6" />,
       tech: ["React", "TypeScript", "Node.js", "WebSockets", "Charts"],
       link: "https://admybrand-dash-nova-jfwg.vercel.app/",
-      github: "#",
+      github: "https://github.com/Lokesh-Keswani/admybrand-dash-nova",
       featured: true
     },
     {
@@ -19,26 +19,17 @@ const Projects = () => {
       description: "AI-powered platform that explores entities & relationships through interactive visualizations. Features flowcharts, mind maps, smart document analysis, auto-extracts text & metadata for graph creation, and advanced tools for knowledge mapping.",
       icon: <Brain className="h-6 w-6" />,
       tech: ["AI/ML", "Knowledge Graphs", "Data Visualization", "NLP"],
-      link: "#",
-      github: "#",
+      link: "https://synapse-lac.vercel.app/",
+      github: "", // no public repo link provided — code button removed for this project
       featured: true
-    },
-    {
-      title: "HealthMate",
-      description: "Full-stack AI-powered health and wellness web application designed to help users take control of their fitness journey. Features personalized chatbot, diet generator, and workout generators tailored to user's goals and health conditions.",
-      icon: <Heart className="h-6 w-6" />,
-      tech: ["AI", "Health Tech", "Personalization", "Full Stack"],
-      link: "#",
-      github: "#",
-      featured: false
     },
     {
       title: "Todo List Web App",
       description: "Responsive and interactive Todo List web app using HTML, CSS, and JavaScript. Features for adding, editing, deleting, and marking tasks as complete. Enhanced UX with intuitive controls and real-time updates.",
       icon: <Zap className="h-6 w-6" />,
       tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      link: "#",
-      github: "#",
+      link: "https://lokesh-keswani.github.io/Todo/",
+      github: "https://github.com/Lokesh-Keswani/Todo",
       featured: false
     },
     {
@@ -46,8 +37,8 @@ const Projects = () => {
       description: "Educational Resource Website developed as a user-friendly web platform providing curated study materials. Features organized navigation, interactive elements for Mathematics, Science, and English, with accessible interface for students.",
       icon: <BookOpen className="h-6 w-6" />,
       tech: ["Education", "Web Development", "UI/UX", "Interactive Design"],
-      link: "#",
-      github: "#",
+      link: "https://lokesh-keswani.github.io/E-Resources/",
+      github: "https://github.com/Lokesh-Keswani/E-Resources",
       featured: false
     }
   ];
@@ -80,9 +71,9 @@ const Projects = () => {
                   <Badge variant="secondary" className="bg-primary/10 text-primary">Featured</Badge>
                 </div>
               </div>
-              
+
               <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech, techIndex) => (
                   <Badge key={techIndex} variant="outline" className="transition-bounce hover:scale-105">
@@ -90,16 +81,22 @@ const Projects = () => {
                   </Badge>
                 ))}
               </div>
-              
+
               <div className="flex gap-4">
-                <Button className="bg-gradient-primary hover:shadow-glow transition-smooth group/btn">
-                  <ExternalLink className="mr-2 h-4 w-4 transition-smooth group-hover/btn:translate-x-1" />
-                  Live Demo
-                </Button>
-                <Button variant="outline" className="transition-bounce hover:scale-105">
-                  <Github className="mr-2 h-4 w-4" />
-                  Code
-                </Button>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-gradient-primary hover:shadow-glow transition-smooth group/btn">
+                    <ExternalLink className="mr-2 h-4 w-4 transition-smooth group-hover/btn:translate-x-1" />
+                    Live Demo
+                  </Button>
+                </a>
+                {project.github && project.github.length > 0 && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="transition-bounce hover:scale-105">
+                      <Github className="mr-2 h-4 w-4" />
+                      Code
+                    </Button>
+                  </a>
+                )}
               </div>
             </Card>
           ))}
@@ -112,18 +109,18 @@ const Projects = () => {
           </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {otherProjects.map((project, index) => (
-            <Card key={index} className="p-6 bg-muted/20 border-border hover:shadow-glow transition-smooth group">
+            <Card key={index} className="p-6 bg-muted/20 border-border hover:shadow-glow transition-smooth group w-full max-w-md">
               <div className="flex items-center mb-4">
                 <div className="p-2 rounded-lg bg-accent/10 text-accent mr-3">
                   {project.icon}
                 </div>
                 <h4 className="text-lg font-semibold">{project.title}</h4>
               </div>
-              
+
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-1 mb-4">
                 {project.tech.slice(0, 3).map((tech, techIndex) => (
                   <Badge key={techIndex} variant="secondary" className="text-xs">
@@ -134,14 +131,20 @@ const Projects = () => {
                   <Badge variant="secondary" className="text-xs">+{project.tech.length - 3}</Badge>
                 )}
               </div>
-              
+
               <div className="flex gap-2">
-                <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
-                  <ExternalLink className="h-3 w-3" />
-                </Button>
-                <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
-                  <Github className="h-3 w-3" />
-                </Button>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
+                    <ExternalLink className="h-3 w-3" />
+                  </Button>
+                </a>
+                {project.github && project.github.length > 0 && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
+                      <Github className="h-3 w-3" />
+                    </Button>
+                  </a>
+                )}
               </div>
             </Card>
           ))}
@@ -150,10 +153,12 @@ const Projects = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Want to see more of my work?</p>
-          <Button className="bg-gradient-accent hover:shadow-glow-accent transition-smooth">
-            <Github className="mr-2 h-4 w-4" />
-            View All on GitHub
-          </Button>
+          <a href="https://github.com/Lokesh-Keswani" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-accent hover:shadow-glow-accent transition-smooth">
+              <Github className="mr-2 h-4 w-4" />
+              View All on GitHub
+            </Button>
+          </a>
         </div>
       </div>
     </section>

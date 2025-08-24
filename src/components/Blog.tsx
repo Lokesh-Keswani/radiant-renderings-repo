@@ -1,10 +1,20 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Calendar, Eye, ThumbsUp } from "lucide-react";
+import { ExternalLink, Calendar, Github } from "lucide-react";
 
 const Blog = () => {
   const blogPosts = [
+    {
+      title: "How Small AI Chatbots Work in 5 Surprising Steps",
+      excerpt: "Demystifying AI chatbots with a simple, code-free explanation of how these intelligent systems understand and respond to human conversations.",
+      platform: "Dev.to",
+      readTime: "5 min read",
+      engagement: "856 views",
+      link: "https://dev.to/lokesh_keswani/how-small-ai-chatbots-work-in-5-surprising-steps-explained-without-code-4og7",
+      tags: ["AI", "Chatbots", "Beginner"],
+      featured: true
+    },
     {
       title: "CSS Flexbox Explained: A Complete Reference and Tutorial",
       excerpt: "Master CSS Flexbox with this comprehensive guide covering all properties, practical examples, and real-world use cases for modern web layouts.",
@@ -19,40 +29,37 @@ const Blog = () => {
       title: "AI Stole My Job, So I Made It My Intern",
       excerpt: "How I turned AI from a threat into a powerful ally in my development workflow. A practical guide to leveraging AI tools for better productivity.",
       platform: "Medium",
-      readTime: "6 min read", 
-      engagement: "2.1k views",
+      readTime: "6 min read",
       link: "https://medium.com/@LokeshKeswani/ai-stole-my-job-so-i-made-it-my-intern-dc153b254902",
       tags: ["AI", "Productivity", "Career"],
-      featured: true
-    },
-    {
-      title: "How Small AI Chatbots Work in 5 Surprising Steps",
-      excerpt: "Demystifying AI chatbots with a simple, code-free explanation of how these intelligent systems understand and respond to human conversations.",
-      platform: "Dev.to",
-      readTime: "5 min read",
-      engagement: "856 views", 
-      link: "https://dev.to/lokesh_keswani/how-small-ai-chatbots-work-in-5-surprising-steps-explained-without-code-4og7",
-      tags: ["AI", "Chatbots", "Beginner"],
-      featured: false
-    },
-    {
-      title: "JavaScript Promises Explained: A Complete Guide for Beginners",
-      excerpt: "Learn JavaScript Promises from the ground up with practical examples, error handling, and best practices for asynchronous programming.",
-      platform: "Dev.to", 
-      readTime: "10 min read",
-      engagement: "1.5k views",
-      link: "https://dev.to/lokesh_keswani/javascript-promises-explained-a-complete-guide-for-beginners-gbe",
-      tags: ["JavaScript", "Async", "Tutorial"],
       featured: false
     },
     {
       title: "Top 51 Python Tasks Every Beginner Should Solve",
       excerpt: "A curated list of essential Python programming challenges designed to build your coding skills from beginner to intermediate level.",
       platform: "Dev.to",
-      readTime: "15 min read", 
-      engagement: "3.2k views",
+      readTime: "15 min read",
       link: "https://dev.to/lokesh_keswani/top-51-python-tasks-every-beginner-should-solve-2b1",
       tags: ["Python", "Programming", "Practice"],
+      featured: false
+    },
+    {
+      title: "JavaScript Promises Explained: A Complete Guide for Beginners",
+      excerpt: "Learn JavaScript Promises from the ground up with practical examples, error handling, and best practices for asynchronous programming.",
+      platform: "Dev.to",
+      readTime: "10 min read",
+      link: "https://dev.to/lokesh_keswani/javascript-promises-explained-a-complete-guide-for-beginners-gbe",
+      tags: ["JavaScript", "Async", "Tutorial"],
+      featured: false
+    },
+    {
+      title: "AdmyBRAND Technical Documentation",
+      excerpt: `Authored comprehensive documentation for a full-stack real-time analytics dashboard built with React, TypeScript, Node.js, and WebSockets.\n\nCreated clear development setup guides, covering prerequisites, installation, environment configuration, and troubleshooting.\n\nStructured docs for both developers and non-technical users, improving onboarding speed and reducing setup issues.\n\nPublished documentation live with GitHub Pages.`,
+      platform: "Documentation",
+      readTime: "—",
+      link: "https://lokesh-keswani.github.io/Documentation-AdmyBrand-/",
+      source: "https://github.com/Lokesh-Keswani/Documentation-AdmyBrand-",
+      tags: ["Documentation", "AdmyBRAND"],
       featured: false
     }
   ];
@@ -103,16 +110,14 @@ const Blog = () => {
                     <Calendar className="h-4 w-4" />
                     {post.readTime}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Eye className="h-4 w-4" />
-                    {post.engagement}
-                  </div>
                 </div>
                 
-                <Button className="bg-gradient-primary hover:shadow-glow transition-smooth group/btn">
-                  Read More
-                  <ExternalLink className="ml-2 h-4 w-4 transition-smooth group-hover/btn:translate-x-1" />
-                </Button>
+                <a href={post.link} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-gradient-primary hover:shadow-glow transition-smooth group/btn">
+                    Read More
+                    <ExternalLink className="ml-2 h-4 w-4 transition-smooth group-hover/btn:translate-x-1" />
+                  </Button>
+                </a>
               </div>
             </Card>
           ))}
@@ -124,7 +129,6 @@ const Blog = () => {
             <Card key={index} className="p-6 bg-muted/20 border-border hover:shadow-glow transition-smooth group">
               <div className="flex items-center justify-between mb-3">
                 <Badge variant="secondary" className="text-xs">{post.platform}</Badge>
-                <ThumbsUp className="h-4 w-4 text-muted-foreground" />
               </div>
               
               <h4 className="font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-smooth">
@@ -146,13 +150,27 @@ const Blog = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span>{post.readTime}</span>
-                  <span>•</span>
-                  <span>{post.engagement}</span>
                 </div>
-                
-                <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
-                  <ExternalLink className="h-3 w-3" />
-                </Button>
+                {post.source ? (
+                  <div className="flex items-center gap-2">
+                    <a href={post.link} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
+                        <ExternalLink className="h-3 w-3" />
+                      </Button>
+                    </a>
+                    <a href={post.source} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
+                        <Github className="h-3 w-3" />
+                      </Button>
+                    </a>
+                  </div>
+                ) : (
+                  <a href={post.link} target="_blank" rel="noopener noreferrer">
+                    <Button size="sm" variant="outline" className="transition-bounce hover:scale-105">
+                      <ExternalLink className="h-3 w-3" />
+                    </Button>
+                  </a>
+                )}
               </div>
             </Card>
           ))}
@@ -164,12 +182,16 @@ const Blog = () => {
             Enjoyed reading? Follow me for more programming tips and tutorials!
           </p>
           <div className="flex justify-center gap-4">
-            <Button className="bg-gradient-accent hover:shadow-glow-accent transition-smooth">
-              Follow on Dev.to
-            </Button>
-            <Button variant="outline" className="transition-bounce hover:scale-105">
-              Follow on Medium
-            </Button>
+            <a href="https://dev.to/lokesh_keswani" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-accent hover:shadow-glow-accent transition-smooth">
+                Follow on Dev.to
+              </Button>
+            </a>
+            <a href="https://medium.com/@LokeshKeswani" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="transition-bounce hover:scale-105">
+                Follow on Medium
+              </Button>
+            </a>
           </div>
         </div>
       </div>

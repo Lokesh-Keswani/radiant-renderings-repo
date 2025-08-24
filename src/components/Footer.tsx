@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, ArrowUp, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -32,9 +32,9 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2 items-start">
               {[
-                'About', 'Skills', 'Projects', 'Blog', 'Contact', 'Resume'
+                'About', 'Skills', 'Projects', 'Blog', 'Contact'
               ].map((link) => (
                 <a
                   key={link}
@@ -44,6 +44,27 @@ const Footer = () => {
                   {link}
                 </a>
               ))}
+
+              {/* Resume links placed inside the same grid so column looks balanced */}
+              <a
+                href="https://drive.google.com/file/d/12JgsiwvMb4ZZ1EzA7Cd_vR80g0h96fuh/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-muted-foreground hover:text-primary transition-smooth text-sm"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Resume — Developer
+              </a>
+
+              <a
+                href="https://drive.google.com/file/d/1B7gy2d47VQcnNTZciBeyvgDR2ieJoVYQ/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-muted-foreground hover:text-primary transition-smooth text-sm"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Resume — Content Writer
+              </a>
             </div>
           </div>
 

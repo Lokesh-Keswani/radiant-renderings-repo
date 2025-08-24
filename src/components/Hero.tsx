@@ -47,12 +47,11 @@ const Hero = () => {
           </h1>
 
           <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-            Software Developer & AI Enthusiast
+            Crafting Code & Teaching Logic | Software Developer | Programming Instructor | Blogger
           </p>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transforming ideas into intelligent digital solutions. Specialized in full-stack development,
-            AI/ML applications, and creating exceptional user experiences.
+            Transforming ideas into intelligent digital solutions. Specialized in full-stack development, AI/ML applications, programming instruction, and blogging while crafting exceptional user experiences.
           </p>
 
           {/* Skills Tags */}
