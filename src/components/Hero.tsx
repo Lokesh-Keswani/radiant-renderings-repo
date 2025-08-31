@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Profile Image */}
-          <div className="mb-8 relative inline-block">
+          <div className="mb-8 relative inline-block mt-12 md:mt-16 lg:mt-20">
             <div className="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-primary">
               <img
                 src={profileImage}
